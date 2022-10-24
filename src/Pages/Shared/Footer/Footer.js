@@ -1,9 +1,17 @@
 import React from 'react';
+import './Footer.css'
 
 const Footer = () => {
     return (
         <div>
-            <h1>Footer</h1>
+            <footer className="bg-light text-center text-lg-start">
+                
+                <div className="text-center p-3 style">
+                    © 2022 Copyright:
+                    <a className="text-dark " href="https://mdbootstrap.com/" style={{ textDecoration: 'none' }}>Course World</a>
+                </div>
+               
+            </footer>
         </div>
     );
 };

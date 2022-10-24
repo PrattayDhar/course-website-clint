@@ -7,16 +7,16 @@ import { Link } from 'react-router-dom';
 
 const Navbars = () => {
     return (
-        <div>
+        <div className='text-dsgn'>
             <Navbar collapseOnSelect className='mb-4' expand="lg" bg="dark" variant="dark">
-                <Container className='outline-none text-decantation-none'>
-                    <Navbar.Brand><Link to={'/'}>Course World</Link></Navbar.Brand>
+                <Container className='outline-none '>
+                    <Navbar.Brand><Link to={'/'} style={{ textDecoration: 'none' }}>Course World</Link></Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link><Link to={'/'}>Home</Link></Nav.Link>
-                            <Nav.Link><Link to={'/course'}>Course</Link></Nav.Link>
-                            <Nav.Link><Link to={'/cetagory'}>Cetagory</Link></Nav.Link>
+                            <Nav.Link><Link to={'/'} style={{ textDecoration: 'none' }}>Home</Link></Nav.Link>
+                            <Nav.Link><Link to={'/course'} style={{ textDecoration: 'none' }}>Course</Link></Nav.Link>
+                            <Nav.Link><Link to={'/cetagory'} style={{ textDecoration: 'none' }}>Cetagory</Link></Nav.Link>
                         </Nav>
                         <Nav>
                             <Nav.Link href="#deets">More deets</Nav.Link>
