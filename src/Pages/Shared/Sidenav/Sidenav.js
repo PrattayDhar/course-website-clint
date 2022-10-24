@@ -13,12 +13,18 @@ const Sidenav = () => {
     return (
         <div>
             <h5>All Cetagory:{cetagory.length}</h5>
-            <div className='cata'>
+            <div>
                 {
                    
                      
         cetagory.map(perCat => <p key={perCat.id}>
-  <Link className='linkmodel p-2 m-4' to={`/cetagory/${perCat.id}`} style={{ textDecoration: 'none', color:'black',}} >{perCat.name}</Link>
+            <ListGroup >
+                <ListGroup.Item className='mb-2 p-3 '> <div className='ceta'>
+                    <Link className='linkmodel p-2 m-4' to={`/cetagory/${perCat.id}`} style={{ textDecoration: 'none', color: 'black', }} >{perCat.name}</Link>
+                </div></ListGroup.Item>
+            </ListGroup>
+           
+  
          </p>)
                              
                 }

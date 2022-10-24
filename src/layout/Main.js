@@ -14,7 +14,7 @@ const Main = () => {
             <Container>
                 <Navbars></Navbars>
                 <Row>
-                    <Col lg="4" className='d-none d-lg-block'>
+                    <Col lg="3" className='d-none d-lg-block'>
                         <Sidenav></Sidenav>
                     </Col>
                     <Col lg="8"><Outlet></Outlet></Col>
