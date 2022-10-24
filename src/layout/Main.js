@@ -2,7 +2,8 @@ import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { Outlet } from 'react-router-dom';
 import Footer from '../Pages/Shared/Footer/Footer';
-import Navbar from '../Pages/Shared/Navbar/Navbar';
+import Navbars from '../Pages/Shared/Navbars/Navbars';
+
 import Sidenav from '../Pages/Shared/Sidenav/Sidenav';
 
 
@@ -11,7 +12,7 @@ const Main = () => {
     return (
         <div>
             <Container>
-                <Navbar></Navbar>
+                <Navbars></Navbars>
                 <Row>
                     <Col lg="4" className='d-none d-lg-block'>
                         <Sidenav></Sidenav>
