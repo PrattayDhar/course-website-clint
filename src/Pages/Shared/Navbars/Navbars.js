@@ -4,16 +4,17 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 
+
 const Navbars = () => {
     return (
         <div>
             <Navbar collapseOnSelect className='mb-4' expand="lg" bg="dark" variant="dark">
-                <Container>
+                <Container className='outline-none text-decantation-none'>
                     <Navbar.Brand><Link to={'/'}>Course World</Link></Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link><Link to={'/home'}>Home</Link></Nav.Link>
+                            <Nav.Link><Link to={'/'}>Home</Link></Nav.Link>
                             <Nav.Link><Link to={'/course'}>Course</Link></Nav.Link>
                             <Nav.Link><Link to={'/cetagory'}>Cetagory</Link></Nav.Link>
                         </Nav>
