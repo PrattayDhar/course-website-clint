@@ -1,12 +1,25 @@
 import React from 'react';
+import { useContext } from 'react';
+import { Button } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Context/AuthProvider';
 import './Navbars.css'
 
 const Navbars = () => {
     
+    const {User,LogOut}=useContext(AuthContext)
+    const HandleLogout = () => {
+        LogOut()
+            .then(() => {
+                alert("Sign-out successful");
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    };
     return (
         <div className='text-dsgn'>
             <Navbar collapseOnSelect className='mb-4' expand="lg" bg="dark" variant="dark">
@@ -22,8 +35,16 @@ const Navbars = () => {
 
                         </Nav>
                         <Nav className="me-auto">
+                            {User ? <Link onClick={HandleLogout}>Log Out</Link> : <Nav.Link ><Link  to={'/login'} style={{ textDecoration: 'none' }}>Sing In</Link></Nav.Link>}
+                            
 
-                            <Nav.Link ><Link to={'/login'} style={{ textDecoration: 'none' }}>Sing In</Link></Nav.Link>
+                        </Nav>
+                        <Nav className="me-auto">
+                            {User ?
+                                <div className='d-flex'><Nav.Link >{User.displayName}</Nav.Link>
+                                    <Nav.Link  ><img src={User.photoURL} alt="" title={User.displayName} className='rounded-circle w-25' /></Nav.Link></div>:""}
+                            
+                            
 
                         </Nav>
                         <Nav>

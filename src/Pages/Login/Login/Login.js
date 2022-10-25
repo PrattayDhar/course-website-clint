@@ -2,6 +2,7 @@ import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { FaGithub, FaGoogle, } from "react-icons/fa"
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
 import './Login.css'
 
@@ -33,6 +34,31 @@ const Login = () => {
             })
             .catch((error) => {
                 setError(error);
+            });
+    };
+    const { Register, UpdateUser } = useContext(AuthContext);
+   
+    const navigate = useNavigate();
+    const Handlesingup = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const Username = form.logname.value;
+        const photoURL = form.photourl.value;
+        const email = form.logemail.value;
+        const password = form.logpass.value;
+        Register(email, password)
+            .then(() => {
+                console.log("Login Successful of", email);
+                form.reset();
+                setError("");
+                navigate("/");
+                const profile = { displayName: Username, photoURL: photoURL };
+                UpdateUser(profile)
+                    .then(() => { })
+                    .catch((error) => { });
+            })
+            .catch((error) => {
+                setError(error.message);
             });
     };
     return (
@@ -72,7 +98,7 @@ const Login = () => {
                                                         </div>
                                                         
                                                     </form>
-
+                                                    <p className="mb-0 mt-4 text-center"><a href="#0" className="link">{error}</a></p>
                                                     <p className="mb-0 mt-4 text-center"><a href="#0" className="link">Forgot your password?</a></p>
                                                 </div>
                                             </div>
@@ -81,22 +107,22 @@ const Login = () => {
                                             <div className="center-wrap">
                                                 <div className="section text-center">
                                                     <h4 className="mb-4 pb-3">Sign Up</h4>
-                                                    <form >
+                                                    <form onSubmit={Handlesingup} >
                                                         <div className="form-group">
                                                         <input type="text" name="logname" className="form-style" placeholder="Your Full Name" id="logname" autocomplete="off" />
-                                                        <i className="input-icon uil uil-user"></i>
+                                             
                                                     </div>
                                                         <div className="form-group mt-2">
                                                         <input type="text" name="photourl" className="form-style" placeholder="Photo Url" id="photourl" autocomplete="off" />
-                                                        <i className="input-icon uil uil-user"></i>
+                                                      
                                                     </div>
                                                         <div className="form-group mt-2">
                                                             <input type="email" name="logemail" className="form-style" placeholder="Your Email" id="logemail" autocomplete="off" />
-                                                            <i className="input-icon uil uil-at"></i>
+                                                    
                                                         </div>
                                                         <div className="form-group mt-2">
                                                             <input type="password" name="logpass" className="form-style" placeholder="Your Password" id="logpass" autocomplete="off" />
-                                                            <i className="input-icon uil uil-lock-alt"></i>
+                                                         
                                                             
                                                             <Button className='mt-3' type='submit'>Sing Up</Button>
 
