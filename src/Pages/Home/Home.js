@@ -28,7 +28,7 @@ const Home = () => {
                                 
                                 <Card.Body className='d-flex  justify-content-around pt-3'>
                                     <Card.Title>{perCat.name}</Card.Title>
-                                    <Button variant="outline-success"><Link  to={`/cetagory/${perCat.id}`} style={{ textDecoration: 'none', color: 'black', }} >Click For Details</Link></Button>
+                                    <Button variant="outline-success"><Link  to={`/cetagory/${perCat.id}`} style={{ textDecoration: 'none', color: 'black', }} >Details</Link></Button>
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -39,4 +39,3 @@ const Home = () => {
 };
 
 export default Home;
-// {/* <Courseview key={course._id} course={course}></Courseview> */}

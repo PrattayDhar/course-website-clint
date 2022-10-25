@@ -28,9 +28,10 @@ const Login = () => {
     const HandleGoogle = () => {
         LoginWithGoogle(provider)
             .then((result) => {
-                // const user = result.user;
-                // alert("Login Successful");
-                console.log("Login Success", result);
+                navigate("/");
+               
+                alert("Login Successful");
+                
             })
             .catch((error) => {
                 setError(error);

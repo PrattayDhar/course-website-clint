@@ -4,7 +4,7 @@ import './Footer.css'
 const Footer = () => {
     return (
         <div>
-            <footer className="bg-primary text-center text-lg-start">
+            <footer className="bg-primary text-center text-lg-start mt-5">
                 
                 <div className="text-center p-3 style">
                     © 2022 Copyright:

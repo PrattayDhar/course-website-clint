@@ -1,6 +1,6 @@
 import React from 'react';
 import { useContext } from 'react';
-import { Button } from 'react-bootstrap';
+
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -35,7 +35,7 @@ const Navbars = () => {
 
                         </Nav>
                         <Nav className="me-auto">
-                            {User ? <Link onClick={HandleLogout}>Log Out</Link> : <Nav.Link ><Link  to={'/login'} style={{ textDecoration: 'none' }}>Sing In</Link></Nav.Link>}
+                            {User ? <Link onClick={HandleLogout} style={{ textDecoration: 'none' }}>Log Out</Link> : <Nav.Link ><Link  to={'/login'} style={{ textDecoration: 'none' }}>Sing In</Link></Nav.Link>}
                             
 
                         </Nav>

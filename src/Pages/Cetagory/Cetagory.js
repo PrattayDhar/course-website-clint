@@ -52,7 +52,7 @@ const Cetagory = () => {
                             </Card.Body>
                             <Card.Body className='d-flex  justify-content-around pt-3'>
                                     <Card.Title>{course.title}</Card.Title>
-                                <Button variant="outline-success" onClick={handleShow}>Enroll Now</Button>
+                                <Button variant="outline-success" onClick={handleShow}>Enroll</Button>
                                 </Card.Body>
                             </Card>
                         </Col>
