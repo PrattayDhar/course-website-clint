@@ -1,35 +1,34 @@
-import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import { Button } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
+
 
 const Home = () => {
-    const allCourse = useLoaderData()
-    
-  
+    const [cetagory, setCetagory] = useState([])
+    useEffect(() => {
+        fetch('https://assignment10-server.vercel.app/course-cetagory')
+            .then(res => res.json())
+            .then(data => setCetagory(data))
+    }, [])
     return (
         <div>
-            <p>Total Course:  {allCourse.length}</p> 
-            <Row xs={1} md={2} className="g-4">
-           {
-                allCourse.map(course => 
-                    <Col>
-                        <Card>
-                            <Card.Img variant="top" src={course.image_url} style={{height: '18rem'}} />
-                            <Card.Body>
-                                <h6> Instructor: {course.author.name}</h6>
-                            </Card.Body>
-                            <Card.Body>
-                                <Card.Body className='d-flex  justify-content-around pt-3'>
-                                    <Card.Title>{course.title}</Card.Title>
-                                    <Button variant="outline-success"></Button>
-                                </Card.Body>
+            <h5 className='pb-4'>Total Sector: {cetagory.length}</h5>
+            <Row xs={1} md={3} className="g-4 pb-4">
+                {
+                    cetagory.map(perCat =>
+                        <Col>
+                            <Card>
+                                <Card.Img variant="top" src={perCat.image_url} style={{ height: '18rem' }} />
                                 
-                            </Card.Body>
-                        </Card>
-                    </Col>
+                                <Card.Body className='d-flex  justify-content-around pt-3'>
+                                    <Card.Title>{perCat.name}</Card.Title>
+                                    <Button variant="outline-success"><Link  to={`/cetagory/${perCat.id}`} style={{ textDecoration: 'none', color: 'black', }} >Click For Details</Link></Button>
+                                </Card.Body>
+                            </Card>
+                        </Col>
                     )}
             </Row>
         </div>

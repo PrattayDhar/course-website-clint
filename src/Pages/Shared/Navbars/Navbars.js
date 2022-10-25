@@ -16,7 +16,8 @@ const Navbars = () => {
                         <Nav className="me-auto">
                             <Nav.Link><Link to={'/'} style={{ textDecoration: 'none' }}>Home</Link></Nav.Link>
                             <Nav.Link><Link to={'/course'} style={{ textDecoration: 'none' }}>Course</Link></Nav.Link>
-                            <Nav.Link><Link to={'/cetagory'} style={{ textDecoration: 'none' }}>Cetagory</Link></Nav.Link>
+                            <Nav.Link><Link to={'/blog'} style={{ textDecoration: 'none' }}>Blog</Link></Nav.Link>
+                            <Nav.Link><Link to={'/cetagory'} style={{ textDecoration: 'none' }}></Link></Nav.Link>
                            
                         </Nav>
                         <Nav className="me-auto">

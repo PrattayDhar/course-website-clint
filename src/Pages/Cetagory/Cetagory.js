@@ -10,7 +10,8 @@ const Cetagory = () => {
     const Catcource = useLoaderData()
     return (
         <div>
-            <h1>Catagory lenth:{Catcource.length}</h1>
+            
+            <h5>Total Course:{Catcource.length}</h5>
             <Row xs={1} md={2} className="g-4 pb-4">
                 {
                 Catcource.map(course =>
@@ -20,9 +21,12 @@ const Cetagory = () => {
                                 <Card.Body>
                                 <h6> Instructor: {course.author.name}</h6>
                                 </Card.Body>
+                            <Card.Body>
+                                <p>{course.details.slice(0, 100)}</p>
+                            </Card.Body>
                             <Card.Body className='d-flex  justify-content-around pt-3'>
                                     <Card.Title>{course.title}</Card.Title>
-                                <Button variant="outline-success">Success</Button>
+                                <Button variant="outline-success">Enroll Now</Button>
                                 </Card.Body>
                             </Card>
                         </Col>
