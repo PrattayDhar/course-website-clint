@@ -4,6 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
+import Carosel from '../Carosel/Carosel';
 
 
 const Home = () => {
@@ -15,7 +16,9 @@ const Home = () => {
     }, [])
     return (
         <div>
-            <h5 className='pb-4'>Total Sector: {cetagory.length}</h5>
+            <Carosel></Carosel>
+
+            <h5 className='pb-4 mt-5 '>Total Sector: {cetagory.length}</h5>
             <Row xs={1} md={3} className="g-4 pb-4">
                 {
                     cetagory.map(perCat =>

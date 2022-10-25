@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { Button, Container } from 'react-bootstrap';
 import Sidenav from '../Shared/Sidenav/Sidenav';
+import './Courseview.css'
 
 
 import Modal from 'react-bootstrap/Modal';
@@ -44,7 +45,7 @@ const Courseview = () => {
                             {
                                 allCourse.map(course =>
                                     <Col>
-                                        <Card>
+                                        <Card className='cardmodel'>
                                             <Card.Img variant="top" src={course.image_url} style={{ height: '18rem' }} />
                                             <Card.Body>
                                                 <h6> Instructor: {course.author.name}</h6>
