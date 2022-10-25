@@ -19,7 +19,7 @@ const Navbars = () => {
                             <Nav.Link><Link to={'/cetagory'} style={{ textDecoration: 'none' }}>Cetagory</Link></Nav.Link>
                         </Nav>
                         <Nav>
-                            <Nav.Link href="#deets">More deets</Nav.Link>
+                            <Nav.Link >More deets</Nav.Link>
                             <Nav.Link eventKey={2} href="#memes">
                                 
                             </Nav.Link>

@@ -10,11 +10,17 @@ export const routes=createBrowserRouter([
         children:[
             {
                 path:'/',
-                element:<Home></Home>
+                element: <Home></Home>, 
+                loader: () => fetch(`https://assignment10-server.vercel.app/course`)
             },
             {
-                path:'/cetagory',
-                element:<Cetagory></Cetagory>
+                path: '/cetagory',
+                element: <Cetagory></Cetagory>
+            },
+            {
+                path:'/cetagory/:id',
+                element: <Cetagory></Cetagory>, 
+                loader: ({ params }) => fetch(`https://assignment10-server.vercel.app/cetagory/${params.id}`)
             }
         ]
     }

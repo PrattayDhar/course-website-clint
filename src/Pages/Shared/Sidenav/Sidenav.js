@@ -12,7 +12,7 @@ const Sidenav = () => {
     }, [])
     return (
         <div>
-            <h5>All Cetagory:{cetagory.length}</h5>
+            <h5 className='pb-4'>Total Cetagory: {cetagory.length}</h5>
             <div>
                 {
                    
