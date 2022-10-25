@@ -4,9 +4,6 @@ import { Outlet } from 'react-router-dom';
 import Footer from '../Pages/Shared/Footer/Footer';
 import Navbars from '../Pages/Shared/Navbars/Navbars';
 
-import Sidenav from '../Pages/Shared/Sidenav/Sidenav';
-
-
 
 const Main = () => {
     return (

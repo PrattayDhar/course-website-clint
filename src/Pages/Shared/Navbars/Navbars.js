@@ -17,12 +17,12 @@ const Navbars = () => {
                             <Nav.Link><Link to={'/'} style={{ textDecoration: 'none' }}>Home</Link></Nav.Link>
                             <Nav.Link><Link to={'/course'} style={{ textDecoration: 'none' }}>Course</Link></Nav.Link>
                             <Nav.Link><Link to={'/blog'} style={{ textDecoration: 'none' }}>Blog</Link></Nav.Link>
-                            <Nav.Link><Link to={'/cetagory'} style={{ textDecoration: 'none' }}></Link></Nav.Link>
+                            {/* <Nav.Link><Link to={'/cetagory'} style={{ textDecoration: 'none' }}></Link></Nav.Link> */}
                            
                         </Nav>
                         <Nav className="me-auto">
                             
-                                <Nav.Link >Sing In</Nav.Link>
+                            <Nav.Link ><Link to={'/login'} style={{ textDecoration: 'none' }}>Sing In</Link></Nav.Link>
                                 <Nav.Link >Sing Up</Nav.Link> 
                         </Nav>
                         <Nav>

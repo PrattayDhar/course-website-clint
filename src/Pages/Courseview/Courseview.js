@@ -1,5 +1,5 @@
-import React from 'react';
-import { Outlet, useLoaderData } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useLoaderData } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
@@ -7,10 +7,33 @@ import { Button, Container } from 'react-bootstrap';
 import Sidenav from '../Shared/Sidenav/Sidenav';
 
 
+import Modal from 'react-bootstrap/Modal';
+
+
 const Courseview = () => {
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
     const allCourse = useLoaderData()
     return (
         <div>
+            <div>
+                <Modal show={show} onHide={handleClose}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Congress</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>Wow!! Enroll Successful!!</Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={handleClose}>
+                            Close
+                        </Button>
+                        <Button variant="primary" onClick={handleClose}>
+                          Thank You
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
+            </div>
             <Container>
                 <Row>
                 <Col lg="3" className='d-none d-lg-block'>
@@ -32,7 +55,7 @@ const Courseview = () => {
                                             <Card.Body>
                                                 <Card.Body className='d-flex  justify-content-around pt-3'>
                                                     <Card.Title>{course.title}</Card.Title>
-                                                    <Button variant="outline-success">Enroll Now</Button>
+                                                    <Button variant="outline-success" onClick={handleShow}>Enroll Now</Button>
                                                 </Card.Body>
 
                                             </Card.Body>
