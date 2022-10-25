@@ -4,14 +4,18 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
+import { Container } from 'react-bootstrap';
 
 
 const Cetagory = () => {
     const Catcource = useLoaderData()
     return (
         <div>
-            
-            <h5>Total Course:{Catcource.length}</h5>
+            <Container><Row>
+                <Col lg="3" className='d-none d-lg-block'>
+                    {/* <Sidenav></Sidenav> */}
+                </Col>
+                <Col lg="9"><h5>Total Course:{Catcource.length}</h5>
             <Row xs={1} md={2} className="g-4 pb-4">
                 {
                 Catcource.map(course =>
@@ -31,7 +35,11 @@ const Cetagory = () => {
                             </Card>
                         </Col>
                     )}
-            </Row>
+            </Row></Col>
+
+            </Row></Container>
+            
+            
 
         </div>
     );
