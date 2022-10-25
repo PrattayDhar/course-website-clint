@@ -6,6 +6,7 @@ import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import { Container, Modal } from 'react-bootstrap';
 import Sidenav from '../Shared/Sidenav/Sidenav';
+import './Cetagory.css'
 
 
 const Cetagory = () => {
@@ -40,8 +41,8 @@ const Cetagory = () => {
             <Row xs={1} md={2} className="g-4 pb-4">
                 {
                 Catcource.map(course =>
-                        <Col>
-                            <Card>
+                        <Col >
+                        <Card className='card-color'>
                                 <Card.Img variant="top" src={course.image_url} style={{ height: '18rem' }} />
                                 <Card.Body>
                                 <h6> Instructor: {course.author.name}</h6>

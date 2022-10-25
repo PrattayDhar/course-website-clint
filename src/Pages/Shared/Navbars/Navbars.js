@@ -23,7 +23,7 @@ const Navbars = () => {
                         <Nav className="me-auto">
                             
                             <Nav.Link ><Link to={'/login'} style={{ textDecoration: 'none' }}>Sing In</Link></Nav.Link>
-                                <Nav.Link >Sing Up</Nav.Link> 
+                               
                         </Nav>
                         <Nav>
                             
