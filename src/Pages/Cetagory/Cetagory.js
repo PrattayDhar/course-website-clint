@@ -1,38 +1,20 @@
-import React, { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+
+import { Link, useLoaderData } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
-import { Container, Modal } from 'react-bootstrap';
+import { Container} from 'react-bootstrap';
 import Sidenav from '../Shared/Sidenav/Sidenav';
 import './Cetagory.css'
 
 
 const Cetagory = () => {
-    const [show, setShow] = useState(false);
-
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+   
     const Catcource = useLoaderData()
     return (
         <div>
-            <div>
-                <Modal show={show} onHide={handleClose}>
-                    <Modal.Header closeButton>
-                        <Modal.Title>Congress</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>Wow!! Enroll Successful!!</Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="secondary" onClick={handleClose}>
-                            Close
-                        </Button>
-                        <Button variant="primary" onClick={handleClose}>
-                            Thank You
-                        </Button>
-                    </Modal.Footer>
-                </Modal>
-            </div>
+          
             <Container><Row>
                 <Col lg="3" >
                     <Sidenav></Sidenav>
@@ -52,7 +34,7 @@ const Cetagory = () => {
                             </Card.Body>
                             <Card.Body className='d-flex  justify-content-around pt-3'>
                                     <Card.Title>{course.title}</Card.Title>
-                                <Button variant="outline-success" onClick={handleShow}>Enroll</Button>
+                                <Button variant="outline-success"><Link to={`/course/${course._id}`} style={{ textDecoration: 'none', color: 'black', }}>Details</Link></Button>
                                 </Card.Body>
                             </Card>
                         </Col>

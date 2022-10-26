@@ -19,9 +19,10 @@ const Navbars = () => {
             .catch((error) => {
                 console.error(error);
             });
+        // className = 'text-dsgn'
     };
     return (
-        <div className='text-dsgn'>
+        <div >
             <Navbar collapseOnSelect className='mb-4' expand="lg" bg="dark" variant="dark">
                 <Container className='outline-none '>
                     <Navbar.Brand><Link to={'/'} style={{ textDecoration: 'none' }}>Course World</Link></Navbar.Brand>
@@ -31,20 +32,15 @@ const Navbars = () => {
                             <Nav.Link><Link to={'/'} style={{ textDecoration: 'none' }}>Home</Link></Nav.Link>
                             <Nav.Link><Link to={'/course'} style={{ textDecoration: 'none' }}>Course</Link></Nav.Link>
                             <Nav.Link><Link to={'/blog'} style={{ textDecoration: 'none' }}>Blog</Link></Nav.Link>
-                            {/* <Nav.Link><Link to={'/cetagory'} style={{ textDecoration: 'none' }}></Link></Nav.Link> */}
-
                         </Nav>
                         <Nav className="me-auto">
                             {User ? <Link onClick={HandleLogout} style={{ textDecoration: 'none' }}>Log Out</Link> : <Nav.Link ><Link to={'/login'} style={{ textDecoration: 'none' }}>Get Started</Link></Nav.Link>}
                         </Nav>
 
-                        <Nav className="me-auto">
+                        <Nav>
                             {User ?
                                 <div className='d-flex'><Nav.Link >{User.displayName}</Nav.Link>
-                                    <Nav.Link  ><img src={User.photoURL} alt="" title={User.displayName} className='rounded-circle w-25' /></Nav.Link></div> : ""}
-
-
-
+                                    <Nav.Link  ><img src={User.photoURL} alt="" title={User.displayName} className='rounded-circle naving' /></Nav.Link></div> : ""}
                         </Nav>
                         <Nav>
 
@@ -52,7 +48,7 @@ const Navbars = () => {
                                 <i className="fa fa-sun-o" aria-hidden="true"></i>
                                 <label className="switch btn-color-mode-switch">
                                     <input type="checkbox" name="color_mode" id="color_mode" value="1" />
-                                    <label  data-on="Dark" data-off="Light" className="btn-color-mode-switch-inner"></label>
+                                    <label htmlFor="color_mode"  data-on="Dark" data-off="Light" className="btn-color-mode-switch-inner"></label>
                                 </label>
                                 <i className="fa fa-moon-o" aria-hidden="true"></i>
 
@@ -65,6 +61,9 @@ const Navbars = () => {
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
+            
+           
+           
         </div>
     );
 };

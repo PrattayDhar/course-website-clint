@@ -1,4 +1,4 @@
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GoogleAuthProvider, GithubAuthProvider, signInWithPopup, getAuth } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { FaGithub, FaGoogle, } from "react-icons/fa"
@@ -7,9 +7,11 @@ import { AuthContext } from '../../../Context/AuthProvider';
 import './Login.css'
 
 const Login = () => {
+    
     const { Login, LoginWithGoogle } = useContext(AuthContext);
     const [error, setError] = useState();
     const provider = new GoogleAuthProvider();
+    const gitprovider = new GithubAuthProvider();
     const HandleForm = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -62,6 +64,17 @@ const Login = () => {
                 setError(error.message);
             });
     };
+  const githndl=()=>{
+      const auth = getAuth();
+      signInWithPopup(auth, gitprovider)
+      .then((result) => {
+          const user = result.user;
+          console.log(user);
+
+      })
+          .catch((error) => console.error(error));
+  }
+    
     return (
       <div className='regbody'>
            
@@ -75,7 +88,7 @@ const Login = () => {
                                 <input className="checkbox" type="checkbox" id="reg-log" name="reg-log" />
 
                                 
-                                <label for="reg-log"></label>
+                                <label htmlFor='reg-log'></label>
                                 <div className="card-3d-wrap mx-auto">
                                     <div className="card-3d-wrapper">
                                         <div className="card-front">
@@ -95,7 +108,7 @@ const Login = () => {
                                                         <Button className='mt-3' type='submit'>Log In</Button>
                                                         <div className='d-flex justify-content-evenly g-3 pt-4'>
                                                             <Button onClick={HandleGoogle} className='mb-2' variant="outline-primary"><FaGoogle></FaGoogle></Button>
-                                                        <Button className='mb-2' variant="outline-dark"><FaGithub></FaGithub></Button>
+ <Button onClick={githndl} className='mb-2' variant="outline-dark"><FaGithub></FaGithub></Button>
                                                         </div>
                                                         
                                                     </form>

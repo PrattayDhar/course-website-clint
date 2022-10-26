@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+
 import { Link, useLoaderData } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
@@ -14,7 +14,7 @@ import './Courseview.css'
 const Courseview = () => {
 
     const allCourse = useLoaderData()
-    console.log(allCourse);
+    
     return (
         <div>
 
@@ -39,7 +39,7 @@ const Courseview = () => {
                                             <Card.Body>
                                                 <Card.Body className='d-flex  justify-content-around pt-3'>
                                                     <Card.Title>{course.title}</Card.Title>
-                                                    <Button variant="outline-success"><Link to={`/course/${course._id}`}>Get premium access</Link></Button>
+                                                    <Button variant="outline-success"><Link to={`/course/${course._id}`} style={{ textDecoration: 'none', color: 'black', }}>Details</Link></Button>
                                                 </Card.Body>
 
                                             </Card.Body>
