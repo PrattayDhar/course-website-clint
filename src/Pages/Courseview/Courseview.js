@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
@@ -8,38 +8,21 @@ import Sidenav from '../Shared/Sidenav/Sidenav';
 import './Courseview.css'
 
 
-import Modal from 'react-bootstrap/Modal';
+
 
 
 const Courseview = () => {
-    const [show, setShow] = useState(false);
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
     const allCourse = useLoaderData()
+    console.log(allCourse);
     return (
         <div>
-            <div>
-                <Modal show={show} onHide={handleClose}>
-                    <Modal.Header closeButton>
-                        <Modal.Title>Congress</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>Wow!! Enroll Successful!!</Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="secondary" onClick={handleClose}>
-                            Close
-                        </Button>
-                        <Button variant="primary" onClick={handleClose}>
-                          Thank You
-                        </Button>
-                    </Modal.Footer>
-                </Modal>
-            </div>
+
             <Container>
                 <Row>
-                <Col lg="3" className='d-none d-lg-block'>
-                    <Sidenav></Sidenav>
-                </Col>
+                    <Col lg="3" className='d-none d-lg-block'>
+                        <Sidenav></Sidenav>
+                    </Col>
                     <Col lg="9"><p>Total Course:  {allCourse.length}</p>
                         <Row xs={1} md={2} className="g-4">
                             {
@@ -56,7 +39,7 @@ const Courseview = () => {
                                             <Card.Body>
                                                 <Card.Body className='d-flex  justify-content-around pt-3'>
                                                     <Card.Title>{course.title}</Card.Title>
-                                                    <Button variant="outline-success" onClick={handleShow}>Enroll</Button>
+                                                    <Button variant="outline-success"><Link to={`/course/${course._id}`}>Get premium access</Link></Button>
                                                 </Card.Body>
 
                                             </Card.Body>
@@ -65,10 +48,10 @@ const Courseview = () => {
                                 )}
                         </Row></Col>
 
-            </Row>
+                </Row>
             </Container>
-            
-            
+
+
         </div>
     );
 };

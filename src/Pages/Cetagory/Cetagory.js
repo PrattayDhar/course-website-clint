@@ -34,7 +34,7 @@ const Cetagory = () => {
                 </Modal>
             </div>
             <Container><Row>
-                <Col lg="3" className='d-none d-lg-block'>
+                <Col lg="3" >
                     <Sidenav></Sidenav>
                 </Col>
                 <Col lg="9"><h5>Total Course:{Catcource.length}</h5>

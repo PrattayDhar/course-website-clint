@@ -99,8 +99,8 @@ const Login = () => {
                                                         </div>
                                                         
                                                     </form>
-                                                    <p className="mb-0 mt-4 text-center"><a href="#0" className="link">{error}</a></p>
-                                                    <p className="mb-0 mt-4 text-center"><a href="#0" className="link">Forgot your password?</a></p>
+                                                    <p className="mb-0 mt-4 text-center"><a href="/" className="link">{error}</a></p>
+                                                    <p className="mb-0 mt-4 text-center"><a href="/" className="link">Forgot your password?</a></p>
                                                 </div>
                                             </div>
                                         </div>

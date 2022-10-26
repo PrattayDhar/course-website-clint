@@ -9,8 +9,8 @@ import { AuthContext } from '../../../Context/AuthProvider';
 import './Navbars.css'
 
 const Navbars = () => {
-    
-    const {User,LogOut}=useContext(AuthContext)
+
+    const { User, LogOut } = useContext(AuthContext)
     const HandleLogout = () => {
         LogOut()
             .then(() => {
@@ -35,31 +35,30 @@ const Navbars = () => {
 
                         </Nav>
                         <Nav className="me-auto">
-                            {User ? <Link onClick={HandleLogout} style={{ textDecoration: 'none' }}>Log Out</Link> : <Nav.Link ><Link  to={'/login'} style={{ textDecoration: 'none' }}>Sing In</Link></Nav.Link>}
-                            
-
+                            {User ? <Link onClick={HandleLogout} style={{ textDecoration: 'none' }}>Log Out</Link> : <Nav.Link ><Link to={'/login'} style={{ textDecoration: 'none' }}>Get Started</Link></Nav.Link>}
                         </Nav>
+
                         <Nav className="me-auto">
                             {User ?
                                 <div className='d-flex'><Nav.Link >{User.displayName}</Nav.Link>
-                                    <Nav.Link  ><img src={User.photoURL} alt="" title={User.displayName} className='rounded-circle w-25' /></Nav.Link></div>:""}
-                            
-                            
+                                    <Nav.Link  ><img src={User.photoURL} alt="" title={User.displayName} className='rounded-circle w-25' /></Nav.Link></div> : ""}
+
+
 
                         </Nav>
                         <Nav>
 
-                            <div class="btn-container">
-                                <i class="fa fa-sun-o" aria-hidden="true"></i>
-                                <label class="switch btn-color-mode-switch">
+                            <div className="btn-container">
+                                <i className="fa fa-sun-o" aria-hidden="true"></i>
+                                <label className="switch btn-color-mode-switch">
                                     <input type="checkbox" name="color_mode" id="color_mode" value="1" />
-                                    <label for="color_mode" data-on="Dark" data-off="Light" class="btn-color-mode-switch-inner"></label>
+                                    <label  data-on="Dark" data-off="Light" className="btn-color-mode-switch-inner"></label>
                                 </label>
-                                <i class="fa fa-moon-o" aria-hidden="true"></i>
+                                <i className="fa fa-moon-o" aria-hidden="true"></i>
 
                             </div>
 
-                            <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+                            <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossOrigin="anonymous"></script>
                             <script type="text/javascript" src="script.js"></script>
 
                         </Nav>
