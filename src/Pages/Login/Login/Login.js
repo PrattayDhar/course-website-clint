@@ -2,16 +2,19 @@ import { GoogleAuthProvider, GithubAuthProvider, signInWithPopup, getAuth } from
 import React, { useContext, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { FaGithub, FaGoogle, } from "react-icons/fa"
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
 import './Login.css'
 
 const Login = () => {
-    
+
     const { Login, LoginWithGoogle } = useContext(AuthContext);
     const [error, setError] = useState();
     const provider = new GoogleAuthProvider();
     const gitprovider = new GithubAuthProvider();
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || '/';
     const HandleForm = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -19,6 +22,7 @@ const Login = () => {
         const password = form.logpass.value;
         Login(email, password)
             .then(() => {
+                navigate(from, { replace: true })
                 alert("Login Successful");
                 form.reset();
                 setError("");
@@ -30,18 +34,16 @@ const Login = () => {
     const HandleGoogle = () => {
         LoginWithGoogle(provider)
             .then((result) => {
-                navigate("/");
-               
+                navigate(from, { replace: true })
+
                 alert("Login Successful");
-                
+
             })
             .catch((error) => {
                 setError(error);
             });
     };
     const { Register, UpdateUser } = useContext(AuthContext);
-   
-    const navigate = useNavigate();
     const Handlesingup = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -51,10 +53,11 @@ const Login = () => {
         const password = form.logpass.value;
         Register(email, password)
             .then(() => {
+                navigate(from, { replace: true })
                 console.log("Login Successful of", email);
                 form.reset();
                 setError("");
-                navigate("/");
+
                 const profile = { displayName: Username, photoURL: photoURL };
                 UpdateUser(profile)
                     .then(() => { })
@@ -64,30 +67,29 @@ const Login = () => {
                 setError(error.message);
             });
     };
-  const githndl=()=>{
-      const auth = getAuth();
-      signInWithPopup(auth, gitprovider)
-      .then((result) => {
-          const user = result.user;
-          console.log(user);
+    const githndl = () => {
+        const auth = getAuth();
+        signInWithPopup(auth, gitprovider)
+            .then((result) => {
+                navigate(from, { replace: true })
 
-      })
-          .catch((error) => console.error(error));
-  }
-    
+            })
+            .catch((error) => console.error(error));
+    }
+
     return (
-      <div className='regbody'>
-           
+        <div className='regbody'>
+
             <div className="section">
                 <div className="container">
                     <div className="row full-height justify-content-center">
                         <div className="col-12 text-center align-self-center py-5">
                             <div className="section pb-5 pt-5 pt-sm-2 text-center">
                                 <h6 className="mb-0 pb-3"><span>Sing In </span><span>Sign Up</span></h6>
-                                
+
                                 <input className="checkbox" type="checkbox" id="reg-log" name="reg-log" />
 
-                                
+
                                 <label htmlFor='reg-log'></label>
                                 <div className="card-3d-wrap mx-auto">
                                     <div className="card-3d-wrapper">
@@ -98,19 +100,19 @@ const Login = () => {
 
                                                     <form onSubmit={HandleForm}>
                                                         <div className="form-group">
-                                                        <input type="email" name="logemail" className="form-style" placeholder="Your Email" id="logemail" autocomplete="off"/>
+                                                            <input type="email" name="logemail" className="form-style" placeholder="Your Email" id="logemail" autocomplete="off" />
                                                             <i className="input-icon uil uil-at"></i>
-                                                    </div>
-                                                    <div className="form-group mt-2">
-                                                        <input type="password" name="logpass" className="form-style" placeholder="Your Password" id="logpass" autocomplete="off"/>
+                                                        </div>
+                                                        <div className="form-group mt-2">
+                                                            <input type="password" name="logpass" className="form-style" placeholder="Your Password" id="logpass" autocomplete="off" />
                                                             <i className="input-icon uil uil-lock-alt"></i>
-                                                    </div>
+                                                        </div>
                                                         <Button className='mt-3' type='submit'>Log In</Button>
                                                         <div className='d-flex justify-content-evenly g-3 pt-4'>
                                                             <Button onClick={HandleGoogle} className='mb-2' variant="outline-primary"><FaGoogle></FaGoogle></Button>
- <Button onClick={githndl} className='mb-2' variant="outline-dark"><FaGithub></FaGithub></Button>
+                                                            <Button onClick={githndl} className='mb-2' variant="outline-dark"><FaGithub></FaGithub></Button>
                                                         </div>
-                                                        
+
                                                     </form>
                                                     <p className="mb-0 mt-4 text-center"><a href="/" className="link">{error}</a></p>
                                                     <p className="mb-0 mt-4 text-center"><a href="/" className="link">Forgot your password?</a></p>
@@ -123,25 +125,25 @@ const Login = () => {
                                                     <h4 className="mb-4 pb-3">Sign Up</h4>
                                                     <form onSubmit={Handlesingup} >
                                                         <div className="form-group">
-                                                        <input type="text" name="logname" className="form-style" placeholder="Your Full Name" id="logname" autocomplete="off" />
-                                             
-                                                    </div>
+                                                            <input type="text" name="logname" className="form-style" placeholder="Your Full Name" id="logname" autocomplete="off" />
+
+                                                        </div>
                                                         <div className="form-group mt-2">
-                                                        <input type="text" name="photourl" className="form-style" placeholder="Photo Url" id="photourl" autocomplete="off" />
-                                                      
-                                                    </div>
+                                                            <input type="text" name="photourl" className="form-style" placeholder="Photo Url" id="photourl" autocomplete="off" />
+
+                                                        </div>
                                                         <div className="form-group mt-2">
                                                             <input type="email" name="logemail" className="form-style" placeholder="Your Email" id="logemail" autocomplete="off" />
-                                                    
+
                                                         </div>
                                                         <div className="form-group mt-2">
                                                             <input type="password" name="logpass" className="form-style" placeholder="Your Password" id="logpass" autocomplete="off" />
-                                                         
-                                                            
+
+
                                                             <Button className='mt-3' type='submit'>Sing Up</Button>
 
                                                         </div>
-                                                        </form>
+                                                    </form>
 
 
                                                 </div>
@@ -154,8 +156,8 @@ const Login = () => {
                     </div>
                 </div>
             </div>
-      </div> 
-	
+        </div>
+
     );
 };
 

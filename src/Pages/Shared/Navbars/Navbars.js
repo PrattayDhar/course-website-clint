@@ -32,6 +32,7 @@ const Navbars = () => {
                             <Nav.Link><Link to={'/'} style={{ textDecoration: 'none' }}>Home</Link></Nav.Link>
                             <Nav.Link><Link to={'/course'} style={{ textDecoration: 'none' }}>Course</Link></Nav.Link>
                             <Nav.Link><Link to={'/blog'} style={{ textDecoration: 'none' }}>Blog</Link></Nav.Link>
+                            <Nav.Link><Link to={'/faq'} style={{ textDecoration: 'none' }}>FAQ</Link></Nav.Link>
                         </Nav>
                         <Nav className="me-auto">
                             {User ? <Link onClick={HandleLogout} style={{ textDecoration: 'none' }}>Log Out</Link> : <Nav.Link ><Link to={'/login'} style={{ textDecoration: 'none' }}>Get Started</Link></Nav.Link>}
@@ -48,7 +49,7 @@ const Navbars = () => {
                                 <i className="fa fa-sun-o" aria-hidden="true"></i>
                                 <label className="switch btn-color-mode-switch">
                                     <input type="checkbox" name="color_mode" id="color_mode" value="1" />
-                                    <label htmlFor="color_mode"  data-on="Dark" data-off="Light" className="btn-color-mode-switch-inner"></label>
+                                    <label htmlFor="color_mode" data-on="Dark" data-off="Light" className="btn-color-mode-switch-inner"></label>
                                 </label>
                                 <i className="fa fa-moon-o" aria-hidden="true"></i>
 
@@ -61,9 +62,9 @@ const Navbars = () => {
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-            
-           
-           
+
+
+
         </div>
     );
 };

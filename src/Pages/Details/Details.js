@@ -8,9 +8,9 @@ const Details = () => {
     console.log(details);
     return (
         <div>
-           
-            <Card style={{ width: '40rem',marginLeft:'35%'}}>
-                <Card.Img variant="top" src={details.image_url} style={{ height: '18rem',width:'40rem' }} />
+
+            <Card style={{ width: '40rem', marginLeft: '35%' }}>
+                <Card.Img variant="top" src={details.image_url} style={{ height: '18rem', width: '40rem' }} />
                 <Card.Body>
                     <Card.Text>
                         <p>Instructor:{details.author.name}</p>
@@ -25,10 +25,10 @@ const Details = () => {
                     <Card.Text>
                         <p>Price:{details.price}</p>
                     </Card.Text>
-                    <Button style={{ marginLeft:'40%' }}><Link to={`/cart/${details._id}`} style={{ textDecoration: 'none', color: 'black', }}>Go To Cart</Link></Button>
+                    <Button style={{ marginLeft: '40%' }}><Link to={`/cart/${details._id}`} style={{ textDecoration: 'none', color: 'black', }}>GET PREMIUM ACCESS</Link></Button>
                 </Card.Body>
             </Card>
-            
+
         </div>
     );
 };
